@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div></div>
+    <script type="module">
+      import * as d3 from "https://cdn.jsdelivr.net/npm/d3@7/+esm";
+      var data = [10];
+      const svg = d3
+        .select("div")
+        .append("svg")
+        .attr("width", 500)
+        .attr("height", 500);
+      const circle = svg
+        .append("circle")
+        .attr("width", 50)
+        .attr("height", 50)
+        .attr("r", 30)
+        .attr("cx", 50)
+        .attr("cy", 50);
+      circle
+        .transition()
+        .attr("cx", 100)
+        .duration(1000)
+        .delay(300)
+        .each("end", () => {
+          return d3.select(this).attr("fill", "green");
+        });
+      //        .transition()
+      //        .attr("cy", 200)
+      //        .duration(1000)
+    </script>
+  </body>
+</html>
